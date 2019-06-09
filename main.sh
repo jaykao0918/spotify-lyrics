@@ -33,9 +33,13 @@ while true; do
 	track_id=$(curl "$match_title" | jq '.[].body.track_list | .[0].track.track_id')
 
 	#use curl to retireve lyrics from Musixmatch
+	match_lyrics=$(curl --get --include "'https://musixmatchcom-	musixmatch.p.rapidapi.com/wsr/1.1/track.lyrics.get
+	?track_id='$track_id"\
+  	-H "'X-RapidAPI-Host:' $apiurl_musixmatch " \
+  	-H "'X-RapidAPI-Key:' $apikey_musixmatch")
+	title_lyrics=$(curl "$match_lyrics" | jq '.[].body.lyrics | .[0].lyrics.lyrics_body')
 	
-
-
+	echo"$title_lyrics \n"
 	#see if in another track if not then sleep
 	while [ "$(./spotify-now -i %artist)" != "$sp_artist" ] 
 	do
