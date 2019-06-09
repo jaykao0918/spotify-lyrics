@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-apikey_musixmatch="58db4e1d7c78009f4345c8446298ea58"
+apikey_musixmatch=""
 apiurl_musixmatch='http://api.musixmatch.com/ws/1.1/'
 # check if spotify is running
 ERROR="Spotify is not running! Shutting down......"
