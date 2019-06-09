@@ -37,7 +37,7 @@ while true; do
 	?track_id='$track_id"\
   	-H "'X-RapidAPI-Host:' $apiurl_musixmatch " \
   	-H "'X-RapidAPI-Key:' $apikey_musixmatch")
-	title_lyrics=$(curl "$match_lyrics" | jq '.[].body.lyrics | .[0].lyrics.lyrics_body')
+	title_lyrics=$(curl "$match_lyrics" | jq '.[].body.lyrics.lyrics_body')
 	
 	echo"$title_lyrics \n"
 	#see if in another track if not then sleep
